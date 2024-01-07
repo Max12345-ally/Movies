@@ -3,6 +3,7 @@ import {useState} from 'react';
 
 export default function StarRating({maxRating = 4}) {
   const [rating, setRating] = useState(1);
+  const [tempRating, setTemprating] = useState(0);
 
   function handleRating(rating) {
     setRating(rating);
@@ -48,7 +49,13 @@ const starStyle = {
 
 function Star({onRate, full}) {
   return (
-    <span role='button' style={starStyle} onClick={onRate}>
+    <span
+      role='button'
+      style={starStyle}
+      onClick={onRate}
+      onMouseEnter={() => console.log('Enter')}
+      onMouseLeave={() => console.log('Leave')}
+    >
       {full ? (
         <svg
           xmlns='http://www.w3.org/2000/svg'
