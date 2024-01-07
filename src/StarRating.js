@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 
-export default function StarRating({maxRating = 4}) {
+export default function StarRating({maxRating = 5}) {
   const [rating, setRating] = useState(0);
   const [tempRating, setTempRating] = useState(0);
 
@@ -55,8 +55,8 @@ function Star({onRate, full, onHoverIn, onHoverOut}) {
       role='button'
       style={starStyle}
       onClick={onRate}
-      onMouseEnter={() => onHoverIn}
-      onMouseLeave={() => onHoverOut}
+      onMouseEnter={onHoverIn}
+      onMouseLeave={onHoverOut}
     >
       {full ? (
         <svg
