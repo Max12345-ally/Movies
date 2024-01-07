@@ -2,8 +2,8 @@ import React from 'react';
 import {useState} from 'react';
 
 export default function StarRating({maxRating = 4}) {
-  const [rating, setRating] = useState(1);
-  const [tempRating, setTemprating] = useState(0);
+  const [rating, setRating] = useState(0);
+  const [tempRating, setTempRating] = useState(0);
 
   function handleRating(rating) {
     setRating(rating);
@@ -33,11 +33,11 @@ export default function StarRating({maxRating = 4}) {
             full={rating >= i + 1}
             onRate={() => handleRating(i + 1)}
             onHoverIn={() => setTempRating(i + 1)}
-            onHoverOut={() => setTemRrating(0)}
+            onHoverOut={() => setTempRating(0)}
           />
         ))}
       </div>
-      <p style={textStyle}>{rating || ''}</p>
+      <p style={textStyle}>{tempRating || ''}</p>
     </div>
   );
 }
