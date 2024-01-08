@@ -1,7 +1,21 @@
 import React from 'react';
 import {useState} from 'react';
 
-export default function StarRating({maxRating = 5}) {
+const containerStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  gap: '16px',
+};
+
+const starContainerStyle = {
+  display: 'flex',
+};
+
+export default function StarRating({
+  maxRating = 5,
+  color = '#fcc419',
+  size = 48,
+}) {
   const [rating, setRating] = useState(0);
   const [tempRating, setTempRating] = useState(0);
 
@@ -9,19 +23,11 @@ export default function StarRating({maxRating = 5}) {
     setRating(rating);
   }
 
-  const containerStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '16px',
-  };
-
-  const starContainerStyle = {
-    display: 'flex',
-  };
-
   const textStyle = {
     lineHeight: '1',
     margin: '0',
+    color,
+    fontSize: `${size / 1.5}px`,
   };
 
   return (
