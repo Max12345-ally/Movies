@@ -58,7 +58,7 @@ export default function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const query = 'interstellar';
+  const query = 'sdasfsdg';
 
   useEffect(function () {
     async function fetchMovies() {
@@ -71,6 +71,9 @@ export default function App() {
           throw new Error('Something went wrong with fetching movies');
 
         const data = await res.json();
+
+        if (data.Response === 'False') throw new Error('Movie not found');
+
         setMovies(data.Search);
         setIsLoading(false);
       } catch (err) {
