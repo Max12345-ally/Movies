@@ -58,9 +58,9 @@ export default function App() {
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
-  const [selectedId, setSelectedId] = useState(null);
+  const [selectedId, setSelectedId] = useState('tt12312313142');
 
-  const tempQuery = 'interstellar';
+  // const tempQuery = 'interstellar';
 
   useEffect(
     function () {
@@ -79,7 +79,6 @@ export default function App() {
           if (data.Response === 'False') throw new Error('Movie not found');
 
           setMovies(data.Search);
-          setIsLoading(false);
         } catch (err) {
           console.log(err.message);
           setError(err.message);
@@ -237,7 +236,7 @@ function Movie({movie}) {
   );
 }
 
-function MovieDetails([selectedId]) {
+function MovieDetails({selectedId}) {
   return <div className='details'>{selectedId}</div>;
 }
 
