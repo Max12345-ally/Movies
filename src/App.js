@@ -258,7 +258,7 @@ function MovieDetails({selectedId, onCloseMovie}) {
     Runtime: runtime,
     imdbRating,
     Plot: plot,
-    Released: realeased,
+    Released: released,
     Actors: actors,
     Director: director,
     Genre: genre,
@@ -270,16 +270,26 @@ function MovieDetails({selectedId, onCloseMovie}) {
         `http://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
       );
       const data = await res.json();
-      console.log(data);
+      setMovie(data);
     }
     getMovieDetails();
   }, []);
 
   return (
     <div className='details'>
-      <button className='btn-back' onClick={onCloseMovie}>
-        &larr;
-      </button>
+      <header>
+        <button className='btn-back' onClick={onCloseMovie}>
+          &larr;
+        </button>
+        <img src={poster} alt={`Poster of ${movie} movie`} />
+        <div className='details-overview'>
+          <h2>{title}</h2>
+          <p>
+            {released} &bull; {runtime}
+          </p>
+          <p>{genre}</p>
+        </div>
+      </header>
       {selectedId}
     </div>
   );
