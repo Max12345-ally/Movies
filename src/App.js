@@ -255,7 +255,7 @@ function Movie({movie, onSelectMovie}) {
   );
 }
 
-function MovieDetails({selectedId, onCloseMovie}) {
+function MovieDetails({selectedId, onCloseMovie, onAddWatched}) {
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
@@ -271,6 +271,10 @@ function MovieDetails({selectedId, onCloseMovie}) {
     Director: director,
     Genre: genre,
   } = movie;
+
+  function handleAdd() {
+    onAddWatched(newMovie);
+  }
 
   useEffect(
     function () {
