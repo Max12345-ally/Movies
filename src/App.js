@@ -314,6 +314,8 @@ function MovieDetails({selectedId, onCloseMovie}) {
           <section>
             <div className='rating'>
               <StarRating maxRating={10} size={24} />
+
+              <button className='btn-add' onClick={handleAdd}></button>
             </div>
             <p>
               <em>{plot}</em>
