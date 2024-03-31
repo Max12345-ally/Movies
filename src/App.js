@@ -273,7 +273,16 @@ function MovieDetails({selectedId, onCloseMovie, onAddWatched}) {
   } = movie;
 
   function handleAdd() {
-    onAddWatched(newMovie);
+    const newWatchedMovie = {
+      imdbID: selectedId,
+      title,
+      year,
+      poster,
+      imdbRating: Number(imdbRating),
+      runtime: Number(runtime.split('').at(0)),
+    };
+
+    onAddWatched(newWatchedMovie);
   }
 
   useEffect(
