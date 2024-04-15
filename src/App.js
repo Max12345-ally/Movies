@@ -258,7 +258,7 @@ function Movie({movie, onSelectMovie}) {
 function MovieDetails({selectedId, onCloseMovie, onAddWatched}) {
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const [userReading, setUserRating] = useState('');
+  const [userRating, setUserRating] = useState('');
 
   const {
     Title: title,
@@ -281,6 +281,7 @@ function MovieDetails({selectedId, onCloseMovie, onAddWatched}) {
       poster,
       imdbRating: Number(imdbRating),
       runtime: Number(runtime.split(' ').at(0)),
+      userRating,
     };
 
     onAddWatched(newWatchedMovie);
@@ -334,9 +335,11 @@ function MovieDetails({selectedId, onCloseMovie, onAddWatched}) {
                 onSetRating={setUserRating}
               />
 
-              <button className='btn-add' onClick={handleAdd}>
-                + Add to list
-              </button>
+              {userRating > 0 && (
+                <button className='btn-add' onClick={handleAdd}>
+                  + Add to list
+                </button>
+              )}
             </div>
             <p>
               <em>{plot}</em>
