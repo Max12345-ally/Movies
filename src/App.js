@@ -256,10 +256,13 @@ function Movie({movie, onSelectMovie}) {
   );
 }
 
-function MovieDetails({selectedId, onCloseMovie, onAddWatched}) {
+function MovieDetails({selectedId, onCloseMovie, onAddWatched, watched}) {
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [userRating, setUserRating] = useState('');
+
+  const isWatched = watched.map((movie) => movie.imdbID).includes(selectedId);
+  console.log(isWatched);
 
   const {
     Title: title,
