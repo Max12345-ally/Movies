@@ -114,7 +114,9 @@ export default function App() {
         return;
       }
       fetchMovies();
-      return controller.abort();
+      return function () {
+        controller.abort();
+      };
     },
     [query]
   );
