@@ -324,6 +324,9 @@ export default function App() {
             onCloseMovie();
           }
         });
+        return function () {
+          document.removeEventListener('keydown');
+        };
       },
       [onCloseMovie]
     );
