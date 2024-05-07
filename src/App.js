@@ -319,13 +319,16 @@ export default function App() {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(
       function () {
-        document.addEventListener('keydown', function (e) {
+        function callback(e) {
           if (e.code === 'Escape') {
             onCloseMovie();
           }
-        });
+        }
+
+        document.addEventListener('keydown', callback);
+
         return function () {
-          document.removeEventListener('keydown');
+          document.removeEventListener('keydown', callback);
         };
       },
       [onCloseMovie]
