@@ -155,6 +155,7 @@ export default function App() {
         inputEl.current.focus();
       }
       document.addEventListener('keydown', callback);
+      return () => document.addEventListener('keydown', callback);
     }, []);
 
     return (
