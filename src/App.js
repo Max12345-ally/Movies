@@ -151,11 +151,7 @@ export default function App() {
     const inputEl = useRef(null);
 
     useEffect(function () {
-      // function callback(e) {
       inputEl.current.focus();
-
-      // document.addEventListener('keydown', callback);
-      // return () => document.addEventListener('keydown', callback);
     }, []);
 
     return (
