@@ -1,5 +1,6 @@
 import {useState, useEffect, useRef} from 'react';
 import StarRating from './StarRating';
+import {useMovies} from './useMovies';
 
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
@@ -8,12 +9,11 @@ const KEY = 'bd537322';
 
 export default function App() {
   const [query, setQuery] = useState('');
-  const [movies, setMovies] = useState([]);
-  const [watched, setWatched] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
-  const [selectedId, setSelectedId] = useState(null);
 
+  const [selectedId, setSelectedId] = useState(null);
+  useMovies();
+
+  const [watched, setWatched] = useState([]);
   function handleSelectMovie(id) {
     setSelectedId((selectedId) => (id === selectedId ? null : id));
   }
