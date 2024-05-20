@@ -11,7 +11,8 @@ export default function App() {
   const [query, setQuery] = useState('');
 
   const [selectedId, setSelectedId] = useState(null);
-  useMovies();
+
+  const {movies, isLoading, error} = useMovies(query);
 
   const [watched, setWatched] = useState([]);
   function handleSelectMovie(id) {
